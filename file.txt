@@ -1,0 +1,79 @@
+      v-for="vacancy in validVacancy"
+      v-bind:key="vacancy.id"
+			v-bind:name="vacancy.name"
+			v-bind:form = "vacancy.schedule.name"
+			v-bind:company = "vacancy.employer.name"
+			v-bind:web = "vacancy.alternate_url"
+			v-bind:address= "vacancy.area.name"
+			v-bind:description = "description"
+			v-bind:logo="vacancy.employer.logo_urls"
+
+
+
+
+			
+		name: {
+			type: String,
+			required: true,
+			default: "Title"
+		},
+		description: {
+			type: String,
+			required: true,
+			default: "текст вакансии"
+		},
+		form: {
+			type: String,
+			required: true,
+			default: "форма работы"
+		},
+		company: {
+			type: String,
+			required: true,
+			default: "компания"
+		},
+		web: {
+			type: String,
+			required: true,
+			default: "-"
+		},
+		address: {
+			type: String,
+			required: true,
+			default: "address"
+		},
+		logo: {
+			type: String,
+			required: true,
+			default: '/src/assets/img/no_logo.png'
+		}
+
+			v-for="vacancy in validVacancy"
+      v-bind:key="vacancy.id"
+			:vacancy="vacancy" 
+
+
+
+			export default {
+	name: "app",
+	components: {Request, Vacancy},
+	methods: {
+		...mapActions([
+			"fetchVacancy",
+/* 			"fetchContent" */
+		]),
+		...mapGetters([
+			"validVacancy",
+/* 			"getContent" */
+		]),
+		async mounted() {
+    	this.fetchVacancy(1);
+/* 			this.fetchContent({{vacancy.id}}) */
+  	},
+	}
+}
+
+
+	v-for="vacancy in validVacancy"
+	v-bind:key="vacancy.id"
+	:name="vacancy.name"

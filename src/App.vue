@@ -1,32 +1,46 @@
 <template>
- <div id="app">
-	  <Request></Request>
-		<Vacancy 
-		v-for='vacancy in allPost'
-		:key='vacancy.id'
-		name={{vacancy.name}} 
-		description={{description}} 
-		form={{vacancy.schedule.name}}
-		company={{vacancy.employer.name}}
-		web={{vacancy.alternate_url}}
-		address={{vacancy.area.name}}
-		></Vacancy>
+  <div id="app">
+    <request></request>  
+    <vacancy
+		:post="post"
+		v-for="vacancy in validVacancy"
+		:key="vacancy.id"
+		:name="vacancy.name"
+    ></vacancy>
   </div>
 </template>
 
 <script>
-import Request from './components/request/Request';
-/* import Vacancy from './components/vacancy/Vacancy';  */
-import {mapGetters, mapActions} from 'vuex';
+import Request from "./components/request/Request";
+import Vacancy from './components/vacancy/Vacancy';
+import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: 'app',
-	computed: mapGetters(['appPosts']),
-	components: { Request, Vacancy },
-	methods: mapActions(['fetchPosts']),
-	async mounted() {
-		this.fetchPosts();
+	name: "app",
+	components: {Request, Vacancy},
+	data() {
+		return {
+			post: {
+					id: 1,
+				  title: 'My Journey with Vue'
+			}
+		}
+	},
+	methods: {
+		...mapActions([
+			"fetchVacancy",
+ 			/* "fetchContent"  */
+		]),
+		...mapGetters([
+			"validVacancy",
+ 			/* "getContent"  */
+		]),
+		async mounted() {
+    	this.fetchVacancy(4);
+			/* this.fetchContent({{vacancy.id}})  */
+  	},
 	}
 }
-
 </script>
+
+

@@ -1,10 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
+import vacancy from './modules/vacancy'
+import description from './modules/description'
 
-Vue.useAttrs(Vuex)
-
-export default new Vuex.Store({
+export default createStore({
   modules: {
-    vacancy
+    vacancy,
+		description	
   }
 })
+

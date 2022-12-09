@@ -1,12 +1,11 @@
-import { createApp } from 'vue'
-import App from '../src/App.vue'
+import {createApp} from 'vue'
+/* import { createStore } from 'vuex' */
+import App from './App.vue'
 import store from './store'
-import "../src/assets/styles/base.css";
-import "../src/assets/styles/fonts.css";
-import "../src/assets/styles/normalize.css";
+import "./assets/styles/normalize.css";
+import "./assets/styles/fonts.css";
+import "./assets/styles/base.css";
 
-/* const app = createApp(App).mount('#app') */
-new Vue({
-	store,
-	render: h => h(App)
-}).$mount('#app')
+ const app = createApp(App)
+ app.use(store) 
+ app.mount('#app')
