@@ -14,6 +14,8 @@
   margin-bottom: 32px;
 }
 
+
+
 /* /main vacancies-section */
 /* main drop-down-menu */
 .drop-down-menu__form {
@@ -200,4 +202,8 @@
 .btn-more-vacancies button {
   margin: 0 auto;
   display: block;
+}
+
+.title{ 
+	font-size: 40px;
 }

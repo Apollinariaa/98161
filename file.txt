@@ -9,7 +9,7 @@
 			v-bind:logo="vacancy.employer.logo_urls"
 
 
-
+				 :src="require(vacancy.employer.logo_urls)"
 
 			
 		name: {
@@ -77,3 +77,35 @@
 	v-for="vacancy in validVacancy"
 	v-bind:key="vacancy.id"
 	:name="vacancy.name"
+
+		v-for="vacancy in validVacancy"
+		:key="vacancy.id"
+		:name="vacancy.name"
+
+
+
+
+			computed: mapGetters(['validVacancy']),
+	async mounted() {
+		this.$store.dispatch('fetchVacancy')
+	}
+/* 	methods: {
+		...mapActions([
+			"fetchVacancy",
+ 			/* "fetchContent"  
+		]),
+		...mapGetters([
+			"validVacancy",
+ 			/* "getContent"  
+		]),
+		async mounted() {
+    	this.fetchVacancy(4);
+			/* this.fetchContent({{vacancy.id}})  
+  	},
+	} */
+
+	
+			<select class="drop-down-menu__form">
+					<label for="">Form <br><p class="drop-down-menu__text">Not selected</p></label> 
+					<button @click='showSelect' class="drop-down-menu__btn"><img class="drop-down-menu__img" src="../src/assets/img/menu-btn.png" alt="#"></button>
+			</select>
