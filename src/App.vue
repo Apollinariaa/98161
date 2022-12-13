@@ -9,24 +9,15 @@
 			></Select>
 		</div>
     <vacancy
-			v-for="vacancy in validVacancy"
-      v-bind:key="vacancy.id"
-			v-bind:name="vacancy.name"
-			v-bind:form = "vacancy.schedule.name"
-			v-bind:company = "vacancy.employer.name"
-			v-bind:web = "vacancy.alternate_url"
-			v-bind:address= "vacancy.area.name"
-			v-bind:description = "vacancy.description"
-			v-bind:logo="vacancy.employer.logo_urls['240']"
+			:validVacancy = "validVacancy"
     ></vacancy>
 		</main>
-		<button class="btn-more-vacancies btn">Show metails</button>
-		
-		<request></request>  
+		<Request></Request>  
   </div>
 </template>
 
 <script>
+/* v-bind:logo="vacancy.employer.logo_urls['240']" */
 import Request from "./components/request/Request";
 import Vacancy from './components/vacancy/Vacancy';
 import Select from './components/select/Select';
@@ -44,14 +35,6 @@ export default {
 	methods: mapActions(['fetchVacancy']),
 	async beforeCreate() {
 		this.$store.dispatch('fetchVacancy')
-
-		//dispatch('fetchVacancy');
-		// this.fetchVacancy();
-		//console.log(fetchVacancy());
-		//console.log(mapActions(['fetchVacancy']));
-		//console.log(mapGetters(['validVacancy']));
-		//console.log(mapState(['vacancy']));
-		//console.log(this.$store.state.vacancy);
 	}
 }
 </script>
