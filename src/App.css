@@ -1,0 +1,61 @@
+.btn {
+  border: 0;
+  border-radius: 0;
+  min-width: 224px;
+  height: 48px;
+  background: #000000;
+  padding: 0 24px;
+  color: #fff;
+  line-height: 26px;
+}
+
+.drop-down-menu__btn {
+  border: none;
+  background: #fff;
+  float: right; /* Выравнивание по правому краю */
+  margin-top: -8px;
+  position: abcolute;
+}
+
+.select-op {
+  width: 260px;
+  border: none;
+  background: #fff;
+}
+
+.drop-down-menu__menu {
+  border: none;
+  background: #fff;
+}
+
+hr {
+  margin: 0;
+}
+
+option {
+  border: none;
+  width: 120%;
+}
+
+select {
+  padding: 1px 0;
+  font-size: 22px;
+}
+
+label {
+  font-size: 22px;
+}
+
+select {
+  width: 455px;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  /*   -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none; */
+}
+
+/* скроет иконку стрелки в IE*/
+select::-ms-expand {
+  display: none;
+}
