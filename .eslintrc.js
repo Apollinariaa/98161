@@ -6,7 +6,7 @@ module.exports = {
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
-    requireConfigFile: false,
+    requireConfigFile: false
   },
   extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
   plugins: [],

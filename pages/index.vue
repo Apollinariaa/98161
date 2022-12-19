@@ -49,21 +49,22 @@ export default {
         { formWork: "Гибкий график", id: 4, form: "flexible" },
       ],
       sortedVacancy: [],
+      params: { page: 1, schedule: "" },
     };
   },
   computed: {
     vacancies() {
-      return this.$store.getters['vacancy/validVacancy'] || []
-      
+      return this.$store.getters['vacancy/validVacancy'] || []   
     },
   },
-  async beforeCreate() {
-    this.params = {
-      page: 1,
-      schedule: ""
-    }
-    await this.$store.dispatch('vacancy/fetchVacancy', this.params)
+  async fetch({store}) {
+    this.params = { page: 1, schedule: "" }
+    await store.dispatch('vacancy/fetchVacancy', this.params);
   },
+/*   async beforeCreate() {
+    this.params = { page: 1, schedule: "" }
+    await this.$store.dispatch('vacancy/fetchVacancy', this.params)
+  }, */
   methods: {
     async filterByVacancies(item){
       this.params.page = 1;
